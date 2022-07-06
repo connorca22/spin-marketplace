@@ -23,6 +23,7 @@ class ListingsController < ApplicationController
   # POST /listings or /listings.json
   def create
     @listing = Listing.new(listing_params)
+    @listing.user = current_user
 
     respond_to do |format|
       if @listing.save
@@ -63,7 +64,7 @@ class ListingsController < ApplicationController
     def set_form_vars 
       @product_types = ProductType.all 
       @conditions = Listing.conditions.keys
-      @genres = Listing.genres.keys 
+      @genres = Listing.genres.keys.map {|i| i.split("_").map {|x| x.capitalize}}.map {|y| y.join(" ") }
     end 
   
     
