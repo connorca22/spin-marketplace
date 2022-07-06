@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[ show edit update destroy ]
+  before_action :set_form_vars
 
   # GET /listings or /listings.json
   def index
@@ -58,6 +59,14 @@ class ListingsController < ApplicationController
   end
 
   private
+    
+    def set_form_vars 
+      @product_types = ProductType.all 
+      @conditions = Listing.conditions.keys
+      @genres = Listing.genres.keys 
+    end 
+  
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
       @listing = Listing.find(params[:id])

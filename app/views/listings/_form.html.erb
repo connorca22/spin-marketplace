@@ -27,13 +27,15 @@
   </div>
 
   <div class="field">
-    <%= form.label :condition %>
-    <%= form.number_field :condition %>
+    <% @conditions.each do |option| %> 
+    <%= form.label :condition, option %>
+    <%= form.radio_button :condition, option %>
+    <% end %>
   </div>
 
   <div class="field">
     <%= form.label :genre %>
-    <%= form.number_field :genre %>
+    <%= form.select :genre, @genres %>
   </div>
 
   <div class="field">
@@ -53,7 +55,7 @@
 
   <div class="field">
     <%= form.label :product_type_id %>
-    <%= form.text_field :product_type_id %>
+    <%= form.select :product_type_id, @product_types.map {|i| [i.name, i.id] } %>
   </div>
 
   <div class="actions">
