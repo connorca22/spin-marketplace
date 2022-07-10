@@ -35,7 +35,7 @@
 
   <div class="field">
     <%= form.label :genre %>
-    <%= form.select :genre, @genres %>
+    <%= form.select :genre, @genres.map { |g| [format_label(g), g] }%>
   </div>
 
   <div class="field">

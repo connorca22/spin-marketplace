@@ -1,6 +1,8 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[ show edit update destroy ]
   before_action :set_form_vars
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authorize_user, only: [:edit, :update, :destroy] 
 
   # GET /listings or /listings.json
   def index
@@ -64,9 +66,15 @@ class ListingsController < ApplicationController
     def set_form_vars 
       @product_types = ProductType.all 
       @conditions = Listing.conditions.keys
-      @genres = Listing.genres.keys.map {|i| i.split("_").map {|x| x.capitalize}}.map {|y| y.join(" ") }
+      @genres = Listing.genres.keys 
     end 
-  
+
+    def authorize_user 
+      if @listing.user_id != current_user.id 
+        flash[:alert] = "You do not own this listing." 
+        redirect_to listings_path 
+      end 
+    end 
     
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
