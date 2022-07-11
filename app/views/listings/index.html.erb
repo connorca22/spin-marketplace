@@ -26,7 +26,7 @@
         <td><%= listing.description %></td>
         <td><%= listing.condition %></td>
         <td><%= listing.genre %></td>
-        <td><%= listing.price %></td>
+        <td><%= number_to_currency(listing.price) %></td>
         <td><%= listing.sold %></td>
         <td><%= listing.user_id %></td>
         <td><%= listing.product_type_id %></td>

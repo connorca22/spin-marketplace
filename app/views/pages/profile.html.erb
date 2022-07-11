@@ -1,0 +1,96 @@
+<h1>Your Profile</h1>
+
+<h3>Active Listings</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Description</th>
+      <th>Condition</th>
+      <th>Genre</th>
+      <th>Price</th>
+      <th>Product type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unsold_listings.each do |product| %>
+      <tr>
+        <td><%= product.title %></td>
+        <td><%= product.artist %></td>
+        <td><%= product.description %></td>
+        <td><%= product.condition %></td>
+        <td><%= product.genre %></td>
+        <td><%= number_to_currency(product.price) %></td>
+        <td><%= product.product_type_id %></td>
+        <td><%= link_to 'Show', product %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Bought Items</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Description</th>
+      <th>Condition</th>
+      <th>Genre</th>
+      <th>Price</th>
+      <th>User</th>
+      <th>Product type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bought_products.each do |product| %>
+      <tr>
+        <td><%= product.listing.title %></td>
+        <td><%= product.listing.artist %></td>
+        <td><%= product.listing.description %></td>
+        <td><%= product.listing.condition %></td>
+        <td><%= product.listing.genre %></td>
+        <td><%= number_to_currency(product.listing.price) %></td>
+        <td><%= product.listing.user_id %></td>
+        <td><%= product.listing.product_type_id %></td>
+        <td><%= link_to 'Show', product.listing %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Sold Listings</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Description</th>
+      <th>Condition</th>
+      <th>Genre</th>
+      <th>Price</th>
+      <th>Product type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sold_listings.each do |product| %>
+      <tr>
+        <td><%= product.listing.title %></td>
+        <td><%= product.listing.artist %></td>
+        <td><%= product.listing.description %></td>
+        <td><%= product.listing.condition %></td>
+        <td><%= product.listing.genre %></td>
+        <td><%= number_to_currency(product.listing.price) %></td>
+        <td><%= product.listing.product_type_id %></td>
+        <td><%= link_to 'Show', product.listing %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
