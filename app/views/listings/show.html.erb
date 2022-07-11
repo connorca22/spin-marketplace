@@ -50,6 +50,15 @@
   <strong>Product type:</strong>
   <%= @listing.product_type_id %>
 </p>
+
+<% if @listing.sold %>
+  <h4>Sold</h4>
+<% elsif current_user && @listing.user_id != current_user.id %>
+  <%= button_to "Purchase", new_order_path %>
+<% elsif !current_user %>
+  <h3>Please log in to purchase</h3>
+<% end %>
+
 <% if current_user && @listing.user_id == current_user.id %>
   <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <% end %>

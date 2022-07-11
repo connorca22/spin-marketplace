@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: %i[ show edit update destroy ]
+  before_action :set_listing, only: %i[ show edit update destroy new_order]
   before_action :set_form_vars
   before_action :authenticate_user!, except: [:index, :show]
   before_action :authorize_user, only: [:edit, :update, :destroy] 
@@ -60,6 +60,17 @@ class ListingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def new_order 
+    Order.create(
+      listing_id: @listing.id, 
+      seller_id: @listing.user_id, 
+      buyer_id: current_user.id 
+    )
+    @listing.update(sold: true)
+    redirect_to order_success_path
+  end 
 
   private
     
