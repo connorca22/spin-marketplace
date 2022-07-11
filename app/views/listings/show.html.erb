@@ -3,7 +3,7 @@
 <% if @listing.image.attached? %>
   <%= image_tag @listing.image, alt: @listing.title %>
 <% else %>
-  <%= image_tag "placeholder", width: "20%", alt: @listing.title %>
+  <%= image_tag "placeholder.jpg", width: "20%", alt: @listing.title %>
 <% end %>
 
 <p>
@@ -56,7 +56,7 @@
 <% elsif current_user && @listing.user_id != current_user.id %>
   <%= button_to "Purchase", new_order_path %>
 <% elsif !current_user %>
-  <h3>Please log in to purchase</h3>
+  <h4>Please log in to purchase</h4>
 <% end %>
 
 <% if current_user && @listing.user_id == current_user.id %>
