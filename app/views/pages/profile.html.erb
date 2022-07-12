@@ -41,7 +41,7 @@
       <th>Condition</th>
       <th>Genre</th>
       <th>Price</th>
-      <th>User</th>
+      <th>Seller</th>
       <th>Product type</th>
       <th colspan="3"></th>
     </tr>
@@ -56,7 +56,7 @@
         <td><%= product.listing.condition %></td>
         <td><%= product.listing.genre %></td>
         <td><%= number_to_currency(product.listing.price) %></td>
-        <td><%= product.listing.user_id %></td>
+        <td><%= product.seller.username %></td>
         <td><%= product.listing.product_type_id %></td>
         <td><%= link_to 'Show', product.listing %></td>
       </tr>
@@ -74,6 +74,7 @@
       <th>Condition</th>
       <th>Genre</th>
       <th>Price</th>
+      <th>Buyer</th>
       <th>Product type</th>
       <th colspan="3"></th>
     </tr>
@@ -88,6 +89,7 @@
         <td><%= product.listing.condition %></td>
         <td><%= product.listing.genre %></td>
         <td><%= number_to_currency(product.listing.price) %></td>
+        <td><%= product.buyer.username %></td>
         <td><%= product.listing.product_type_id %></td>
         <td><%= link_to 'Show', product.listing %></td>
       </tr>
