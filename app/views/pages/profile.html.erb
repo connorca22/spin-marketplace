@@ -21,10 +21,10 @@
         <td><%= product.title %></td>
         <td><%= product.artist %></td>
         <td><%= product.description %></td>
-        <td><%= product.condition %></td>
-        <td><%= product.genre %></td>
+        <td><%= format_label(product.condition) %></td>
+        <td><%= format_label(product.genre) %></td>
         <td><%= number_to_currency(product.price) %></td>
-        <td><%= product.product_type_id %></td>
+        <td><%= product.product_type.name %></td>
         <td><%= link_to 'Show', product %></td>
       </tr>
     <% end %>
@@ -53,11 +53,11 @@
         <td><%= product.listing.title %></td>
         <td><%= product.listing.artist %></td>
         <td><%= product.listing.description %></td>
-        <td><%= product.listing.condition %></td>
-        <td><%= product.listing.genre %></td>
+        <td><%= format_label(product.listing.condition) %></td>
+        <td><%= format_label(product.listing.genre) %></td>
         <td><%= number_to_currency(product.listing.price) %></td>
         <td><%= product.seller.username %></td>
-        <td><%= product.listing.product_type_id %></td>
+        <td><%= product.listing.product_type.name %></td>
         <td><%= link_to 'Show', product.listing %></td>
       </tr>
     <% end %>
@@ -86,11 +86,11 @@
         <td><%= product.listing.title %></td>
         <td><%= product.listing.artist %></td>
         <td><%= product.listing.description %></td>
-        <td><%= product.listing.condition %></td>
-        <td><%= product.listing.genre %></td>
+        <td><%= format_label(product.listing.condition) %></td>
+        <td><%= format_label(product.listing.genre) %></td>
         <td><%= number_to_currency(product.listing.price) %></td>
         <td><%= product.buyer.username %></td>
-        <td><%= product.listing.product_type_id %></td>
+        <td><%= product.listing.product_type.name %></td>
         <td><%= link_to 'Show', product.listing %></td>
       </tr>
     <% end %>

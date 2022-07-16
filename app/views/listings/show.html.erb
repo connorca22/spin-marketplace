@@ -23,12 +23,12 @@
 
 <p>
   <strong>Condition:</strong>
-  <%= @listing.condition %>
+  <%= format_label(@listing.condition) %>
 </p>
 
 <p>
   <strong>Genre:</strong>
-  <%= @listing.genre %>
+  <%= format_label(@listing.genre) %>
 </p>
 
 <p>
@@ -42,13 +42,13 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @listing.user_id %>
+  <strong>Seller:</strong>
+  <%= @listing.user.username %>
 </p>
 
 <p>
   <strong>Product type:</strong>
-  <%= @listing.product_type_id %>
+  <%= @listing.product_type.name %>
 </p>
 
 <% if @listing.sold %>
