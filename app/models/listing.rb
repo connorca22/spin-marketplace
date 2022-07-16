@@ -4,6 +4,13 @@ class Listing < ApplicationRecord
   has_rich_text :description
   has_one_attached :image 
 
+  validates :title, presence: true
+  validates :artist, presence: true
+  validates :condition, presence: true
+  validates :genre, presence: true
+  validates :price, presence: true
+  validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+
   enum condition: {
     poor: 1,
     used: 2,

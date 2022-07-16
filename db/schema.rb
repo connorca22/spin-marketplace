@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_11_004729) do
+ActiveRecord::Schema.define(version: 2022_07_16_065321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,11 +54,11 @@ ActiveRecord::Schema.define(version: 2022_07_11_004729) do
   end
 
   create_table "listings", force: :cascade do |t|
-    t.string "title"
-    t.string "artist"
-    t.integer "condition"
-    t.integer "genre"
-    t.integer "price"
+    t.string "title", null: false
+    t.string "artist", null: false
+    t.integer "condition", null: false
+    t.integer "genre", null: false
+    t.integer "price", null: false
     t.boolean "sold", default: false
     t.bigint "user_id", null: false
     t.bigint "product_type_id", null: false

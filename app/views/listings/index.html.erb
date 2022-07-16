@@ -20,22 +20,24 @@
 
   <tbody>
     <% @listings.each do |listing| %>
-      <tr>
-        <td><%= listing.title %></td>
-        <td><%= listing.artist %></td>
-        <td><%= listing.description %></td>
-        <td><%= format_label(listing.condition) %></td>
-        <td><%= format_label(listing.genre) %></td>
-        <td><%= number_to_currency(listing.price) %></td>
-        <td><%= listing.sold %></td>
-        <td><%= listing.user.username %></td>
-        <td><%= listing.product_type.name %></td>
-        <td><%= link_to 'Show', listing %></td>
-        <% if current_user && listing.user_id == current_user.id %>
-          <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-          <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+      <% if !listing.sold %>
+        <tr>
+          <td><%= listing.title %></td>
+          <td><%= listing.artist %></td>
+          <td><%= listing.description %></td>
+          <td><%= format_label(listing.condition) %></td>
+          <td><%= format_label(listing.genre) %></td>
+          <td><%= number_to_currency(listing.price) %></td>
+          <td><%= listing.sold %></td>
+          <td><%= listing.user.username %></td>
+          <td><%= listing.product_type.name %></td>
+          <td><%= link_to 'Show', listing %></td>
+          <% if current_user && listing.user_id == current_user.id %>
+            <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+            <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
