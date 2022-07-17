@@ -5,13 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-
-product_types = ['Single', 'EP', 'LP']
-
-
-if ProductType.count == 0 
-    product_types.each do |type|
-        ProductType.create(name: type)
-    end 
-end 
