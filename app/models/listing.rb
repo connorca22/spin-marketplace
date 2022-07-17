@@ -1,9 +1,11 @@
 class Listing < ApplicationRecord
+  #sets up associations with users, product types, descriptions, and images.
   belongs_to :user
   belongs_to :product_type
   has_rich_text :description
   has_one_attached :image 
 
+  #validates presence on fields in listings form. 
   validates :title, presence: true
   validates :artist, presence: true
   validates :condition, presence: true
@@ -11,13 +13,14 @@ class Listing < ApplicationRecord
   validates :price, presence: true
   validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 
+  #conditions enum
   enum condition: {
     poor: 1,
     used: 2,
     good_condition: 3,
     brand_new: 4
   }
-
+  #genre enum
   enum genre: {
     rock: 1,
     electronic: 2,
