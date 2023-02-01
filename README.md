@@ -12,7 +12,7 @@ The size of this market has also never been more evident than now - last year (2
 With the increasing sale of vinyl domestically, there is a naturally increasing demand for marketplaces that facilitate the purchase and sale of second hand records. Currently second hand records are primarily being sold to bricks and mortar stores, and on general marketplace websites like gumtree, ebay, and Facebook Marketplace. This application looks to cater to this market, while profiting from advertising revenue, and a percentage of all sales (facilitated on the platform by a third party payment provider). 
 
 ## R9) A link (URL) to your deployed app (i.e. website) 
-[Deployed App On Heroku](https://staging-spin-app.herokuapp.com/)
+No longer deployed due to Heroku plan changes. 
 
 
 ## R10) A link to your GitHub repository
